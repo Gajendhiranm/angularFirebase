@@ -1,1 +1,13 @@
-<p>user-card works!</p>
+<ul>
+    <li *ngFor="let i of user">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src={{i.avatar_url}} alt="Card image cap">
+            <div class="card-body">
+              <p class="card-title"><b>Name :</b> {{i.login}}</p>
+              <p class="card-title"><b>Location :</b> {{i.location}}</p>
+              <p class="card-title"><b>Public Repos :</b> {{i.public_repos}}</p>
+              <p class="card-title"><b>Updated At :</b> {{i.updated_at}}</p>
+              
+            </div>
+          </div></li>
+</ul>

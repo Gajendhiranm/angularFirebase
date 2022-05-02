@@ -1,1 +1,3 @@
-<p>repos works!</p>
+<ul *ngFor="let i of repo">
+    <li class="list-group-item" *ngFor="let ir of i">{{ir.name}}</li>
+</ul>

@@ -1,1 +1,19 @@
-<p>signup works!</p>
+<app-header></app-header>
+
+<div class="container center">
+    <div style="border:1px solid #ede9e8;">
+        <h4 class="text-center text-info p-2" style="border:1px solid #ede9e8;height: 50px;background-color: #ede9e8;" >Sign up</h4>
+        <form class="form-group p-2" style="width: 400px" #userForm="ngForm" (ngSubmit)="signup(userForm.value)" >
+          <label for="email2" class="mb-2 mr-sm-2">Email:</label>
+          <input type="text" class="form-control mb-2 mr-sm-2" id="email2" placeholder="Enter email" ngModel name="email">
+          <label for="pwd2" class="mb-2 mr-sm-2">Password:</label>
+          <input type="text" class="form-control mb-2 mr-sm-2" id="pwd2" placeholder="Enter password" ngModel name="password">
+          <p class="text-muted">Password length should br greater than 6</p>
+
+          <button type="submit" class="btn btn-primary mb-2 d-block m-auto" >Submit</button>
+        </form>
+    </div>
+    
+  </div>
+
+  <app-footer></app-footer>
