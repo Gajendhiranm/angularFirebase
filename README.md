@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
+## Problem statement
+Build an Angular Application which retrieves all the public repositories for the searched user. 
+User should be able to sign-in/sign-up to our application using basic forms. Once User is logged 
+in, he/she should be able to search GitHub users using a search box by entering the username. 
+After Entering correct username, the home page should be populated with user details and all 
+its public repositories. (Sample Screenshots at end of the documen
+
+##External Packages Downloaded
+for alerts - Downloaded ngx-toaster
+for Authentication - Firebase Package
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
