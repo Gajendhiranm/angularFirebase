@@ -9,9 +9,14 @@ in, he/she should be able to search GitHub users using a search box by entering 
 After Entering correct username, the home page should be populated with user details and all 
 its public repositories. (Sample Screenshots at end of the documen
 
-##External Packages Downloaded
+## External Packages Downloaded
 for alerts - Downloaded ngx-toaster
 for Authentication - Firebase Package
+
+## Steps to run this Application
+1.Clone this Repo
+2.install npm Packages by "npm i" command
+3.Finally use "npm start" or "ng Serve" command to run
 
 ## Development server
 
