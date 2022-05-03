@@ -48,7 +48,11 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      timeOut: 10000,
+    positionClass: 'toast-bottom-right',
+    preventDuplicates: true,
+    })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

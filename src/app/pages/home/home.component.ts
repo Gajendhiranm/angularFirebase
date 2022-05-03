@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
   access: boolean = false;
+  iserror = false;
   response: any[] = [];
   repos: any[] = [];
   constructor(
@@ -25,12 +26,19 @@ export class HomeComponent implements OnInit {
   }
 
   async getUserinfo(e: any) {
+    if(e.user.length <= 0){
+      this.toastr.error('Input is empty', 'tada!');
+      return;
+    }
     await this.user.getUser(e.user).subscribe(
       (e: any) => {
         this.response = [];
         this.response.push(e);
+        this.iserror = false;
       },
       (err) => {
+        this.iserror = true;
+        this.response = [];
         this.toastr.error('Error', err.error.message);
       }
     );
@@ -42,10 +50,11 @@ export class HomeComponent implements OnInit {
       (e: any) => {
         this.repos = [];
         this.repos.push(e);
-        console.log(this.repos[0]);
+        this.iserror = false;
       },
       (err) => {
-        this.toastr.error('Error', err.error.message);
+        this.repos = [];
+        this.iserror = true;
       }
     );
   }

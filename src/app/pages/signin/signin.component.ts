@@ -19,7 +19,22 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {}
   async signin(e: any) {
-    await this.firebaseService.signin(e.email, e.password);
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(e.email)) {
+      this.toastr.error('Check the email', 'tada!');
+      return;
+    }
+    if (e.password.length <= 5) {
+      this.toastr.error('Check the password', 'tada!');
+      return;
+    }
+
+    await this.firebaseService
+      .signin(e.email, e.password)
+      .catch((e) => {
+        this.toastr.error(e.message);
+        return
+      })
     if (this.firebaseService.isLoggedIn) {
       this.isSigngedin = true;
       this.route.navigate(['/home']);

@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
   constructor(private firebase: AuthService, private route: Router) {}
   isSignedin = false;
+  email = localStorage.getItem('email')?.toString()
   ngOnInit(): void {
     if(localStorage.getItem('user') !== null){
       this.isSignedin = true;
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
   }
   logoutUser() {
     this.firebase.logout();
+    localStorage.clear();
     this.route.navigate(['/signin'])
   }
 

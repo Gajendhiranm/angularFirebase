@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 
-    <form class="form-group d-block m-auto mt-5" style="width: 500px;" #user="ngForm" (ngSubmit)="getUserinfo(user.value)">
+    <form class="form-group d-block m-auto mt-5" style="width: 500px;margin-top: 50px !important;" #user="ngForm" (ngSubmit)="getUserinfo(user.value)">
         <label for="email2" class="mb-2 mr-sm-2">Username:</label>
         <input type="text" class="form-control mb-2 mr-sm-2"  placeholder="Enter username" ngModel name="user" [disabled]="!access ? true:false"> 
         <button type="submit" class="btn btn-primary mb-2">Find User</button>
@@ -9,7 +9,16 @@
 
 <!--Searching the user-->
 
-<div class="container d-flex mt-5">
-    <app-user-card class="col-md-6" [user]="response"></app-user-card>
-    <app-repos class="col-md-6" [repo]="repos"></app-repos>
+
+<div *ngIf="iserror" class="container mt-5">
+    <img src="https://cdn-icons.flaticon.com/png/512/1307/premium/1307714.png?token=exp=1651553142~hmac=2716c2c778a6c45b99552ddc50406e8e" alt="" class="d-block m-auto" height="50" width="50">
+   <h6 class="text-center">user not found Sorry !!!</h6>
 </div>
+
+
+<div class="container d-flex mt-5" >
+    <app-user-card class="col-md-4" [user]="response"></app-user-card>
+    <app-repos class="col-md-8" [repo]="repos"></app-repos>
+</div>
+
+<app-footer></app-footer>
